@@ -1,0 +1,82 @@
+<!--Author : YangSueHyuck-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네온 가위바위보 🎰</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #1a1a1a, #000000);
+            text-align: center;
+            color: white;
+            padding: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff6600;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .welcome-box {
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 30px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffcc00;
+        }
+
+        .ascii {
+            font-size: 20px;
+            margin: 20px auto;
+            white-space: pre-line;
+            font-family: monospace;
+            color: #ff0;
+            text-shadow: 0 0 10px #ff0;
+        }
+
+        .btn {
+            display: inline-block;
+            font-size: 1.5em;
+            margin: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #ff0000;
+            color: white;
+            box-shadow: 0 0 15px #ff0000;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>🎰 네온 가위바위보 게임장 🎰</h1>
+    <div class="welcome-box">
+        <p>운명을 시험해 보세요! 가위, 바위, 보! 🃏💰</p>
+        <div class="ascii">
+            (★‿★)  🎲  (¬‿¬)  🎰  (☉_☉)
+        </div>
+    </div>
+    <br>
+    <button class="btn" onclick="location.href='login.html'">🔑 로그인</button>
+    <button class="btn" onclick="location.href='adduser.html'">📝 회원가입</button>
+</body>
+</html>
