@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네온 가위바위보 게임 🎰</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #1a1a1a, #000000);
+            text-align: center;
+            color: white;
+            padding: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff6600;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .character {
+            font-size: 4em;
+            text-shadow: 0 0 15px #ff0000;
+            margin-bottom: 20px;
+        }
+
+        .bet-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ffcc00;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 350px;
+            margin-bottom: 20px;
+        }
+
+        .bet-box input {
+            font-size: 1.2em;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            background: #222;
+            color: white;
+            width: 100px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: nowrap; /* 가로 정렬 유지 */
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .btn {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #ff0000;
+            color: white;
+            box-shadow: 0 0 15px #ff0000;
+            transition: 0.3s;
+            flex-grow: 1; /* 버튼 크기 균등 배치 */
+            max-width: 150px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .result-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            box-shadow: 0 0 15px #ffcc00;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #ccb21c;
+            color: white;
+            box-shadow: 0 0 15px #f5b616;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎰 네온 가위바위보 🎰</h1>
+    
+    <div class="game-container">
+        <div class="character">🤖</div>
+
+        <div class="bet-box">
+            <label for="bet">💰 베팅 금액:</label>
+            <input type="number" id="bet" min="1" placeholder="0">
+        </div>
+
+        <div class="buttons">
+            <button class="btn" onclick="playGame('✌')">✌ 가위</button>
+            <button class="btn" onclick="playGame('✊')">✊ 바위</button>
+            <button class="btn" onclick="playGame('🖐')">🖐 보</button>
+        </div>
+    </div>
+
+    <div class="submit-container">
+        <input type="submit" value="🎲 홈으로" onclick="location.href='main.html'">
+    </div>
+
+    <div id="resultBox" class="result-box"></div>
+
+    <script>
+        function playGame(playerChoice) {
+            const betInput = document.getElementById('bet');
+            const betAmount = parseInt(betInput.value);
+            if (isNaN(betAmount) || betAmount <= 0) {
+                alert("올바른 베팅 금액을 입력하세요!");
+                return;
+            }
+
+            const choices = ["✌", "✊", "🖐"];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+            const resultBox = document.getElementById('resultBox');
+
+            let result;
+            if (playerChoice === computerChoice) {
+                result = "무승부 😐";
+            } else if (
+                (playerChoice === '✌' && computerChoice === '🖐') ||
+                (playerChoice === '✊' && computerChoice === '✌') ||
+                (playerChoice === '🖐' && computerChoice === '✊')
+            ) {
+                result = "승리 🎉";
+            } else {
+                result = "패배 💸";
+            }
+
+            resultBox.innerHTML = `${result}<br>🤖 ${computerChoice} vs 👤 ${playerChoice}`;
+            resultBox.style.display = "block";
+
+            setTimeout(() => resultBox.style.display = "none", 2000);
+        }
+    </script>
+</body>
+</html>

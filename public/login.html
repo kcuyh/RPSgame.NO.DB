@@ -1,0 +1,130 @@
+<!--Author : YangSueHyuck-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네온 카지노 로그인 🎰</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #1a1a1a, #000000);
+            text-align: center;
+            color: white;
+            padding: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff6600;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffcc00;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+            background: #222;
+            color: white;
+            box-shadow: 0 0 10px #ffcc00;
+            font-size: 1em;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #ff0000;
+            color: white;
+            box-shadow: 0 0 15px #ff0000;
+            transition: 0.3s;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input[type="submit"]:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .casino-icons {
+            font-size: 2em;
+            margin: 20px;
+            text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff0000;
+        }
+
+        /* 모바일 환경 스타일 */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px;
+            }
+            form {
+                width: 90%;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎰 네온 카지노</h1> 
+    <h1>로그인 🎰</h1>
+    <div class="casino-icons">🃏🎲🎰💰</div>
+    <p>운을 시험해 보세요! 행운이 함께 하길! 🍀</p>
+    <br>
+    
+    <form method="post" action="/process/login">
+        <div class="form-group">
+            <label for="id">아이디</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <div class="form-group">
+            <label for="password">패스워드</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="submit-container">
+            <input type="submit" value="🎲 로그인">
+        </div>
+    </form>
+</body>
+</html>
