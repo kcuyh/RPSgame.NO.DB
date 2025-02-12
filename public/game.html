@@ -193,18 +193,24 @@
             })
             .catch(error => console.error('Error:', error));
 
-        function typeMessage(element, message, callback) {
-            let index = 0;
-            element.innerText = "";
-            let interval = setInterval(() => {
-                element.innerText += message[index];
-                index++;
-                if (index === message.length) {
-                    clearInterval(interval);
-                    if (callback) setTimeout(callback, 500);
-                }
-            }, 200);
-        }
+            function typeMessage(element, message, callback) {
+                let index = 0;
+                element.innerText = "";
+                
+                // "가위!", "바위!", "보!!!"는 빠르게 출력
+                let speed = (message === " 가위!" || message ===  " 바위!" || message === " 보!") ? 50 : 150;
+                
+                let interval = setInterval(() => {
+                    element.innerText += message[index];
+                    index++;
+                    if (index === message.length) {
+                        clearInterval(interval);
+                        if (callback) setTimeout(callback, 300);
+                    }
+                }, speed);
+            }
+
+
 
         function playGame(playerChoice) {
             const betInput = document.getElementById('bet');
@@ -219,14 +225,15 @@
             }
             userCoin = Number(userCoin);
             const choices = ["✌", "✊", "🖐"];
-            const computerChoice = choices[Math.floor(Math.random() * 3)];
+            const randomIndex = Math.floor(Math.random() * 3);
+            const computerChoice = choices[randomIndex];
             const speechBubble = document.getElementById('speechBubble');
             const resultBox = document.getElementById('resultBox');
 
             typeMessage(speechBubble, "안 내면 진 거", () => {
                 typeMessage(speechBubble, " 가위!", () => {
                     typeMessage(speechBubble, " 바위!", () => {
-                        typeMessage(speechBubble, " 보!!!!!", () => {
+                        typeMessage(speechBubble, " 보!", () => {
                             setTimeout(() => {
                                 speechBubble.innerText = "";
 
