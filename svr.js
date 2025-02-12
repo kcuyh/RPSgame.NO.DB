@@ -44,7 +44,7 @@ app.post('/process/adduser', (req, res) => {
     bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
         if (err) return res.status(500).json({ error: "비밀번호 해싱 오류" });
 
-        const newUser = { id, nickname, password: hashedPassword, coin: 1000 };
+        const newUser = { id, nickname, password: hashedPassword, coin: 10000 };
         users.push(newUser);
         saveUsers(users);
 
