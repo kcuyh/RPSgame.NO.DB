@@ -5,6 +5,8 @@ const session = require('express-session');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const static = require('serve-static');
+const cors = require('cors');
+
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -15,6 +17,12 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: false
+}));
+
+app.use(cors({
+    origin: "http://your-frontend-domain.com", // 🔹 허용할 프론트엔드 도메인
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 const DATA_FILE = path.join(__dirname, 'users.json');  // 데이터 저장 파일
